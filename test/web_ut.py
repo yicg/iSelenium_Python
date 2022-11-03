@@ -5,6 +5,7 @@ import time
 import unittest
 
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
@@ -64,7 +65,8 @@ class ISelenium(unittest.TestCase):
         time.sleep(5)
         assert f'百度一下' in self.driver.title
 
-        elem = self.driver.find_element_by_name("wd")
+        #elem = self.driver.find_element_by_name("wd")
+        elem = self.driver.find_element(By.NAME,"wd")
         elem.send_keys(f'{search_keyword}{Keys.RETURN}')
         print(f'搜索关键词~{search_keyword}')
         time.sleep(5)
